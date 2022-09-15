@@ -1,5 +1,5 @@
 const routes = require('express').Router();
-const lovedOne = require('../controllers/');
+const lovedOne = require('../controllers');
 
 routes.get('/', lovedOne.husband);
 
