@@ -1,0 +1,23 @@
+{
+    "contact": {
+      "firstName": "BriAnna",
+      "lastName": "Slik",
+      "email": "bs@gmail.com",
+      "favoriteColor": "Red",
+      "birthday": "12/09/99"
+    },
+    "contact2": {
+      "firstName": "Riley",
+      "lastName": "Slik",
+      "email": "rs@gmail.com",
+      "favoriteColor": "Purple",
+      "birthday": "02/11/00"
+    },
+    "contact3": {
+      "firstName": "Tawnee",
+      "lastName": "Marsh",
+      "email": "tm@gmail.com",
+      "favoriteColor": "Brown",
+      "birthday": "05/06/14"
+    }
+  }
