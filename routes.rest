@@ -23,7 +23,7 @@ HTTP:1.1
 Content-Type: application/json
 
 {
-    "firstName":"Mark",
+    "firstName":"Riley",
     "lastName":"Slik",
     "email":"ms@gmail.com",
     "favoriteColor":"purple",
@@ -32,3 +32,41 @@ Content-Type: application/json
 
 ### Delete request (Delete a contact)
 DELETE http://localhost:3000/contacts/632bcd21fcc22d995ded81c8
+
+
+######################################################################
+### RENDER LINKS
+######################################################################
+
+### DB connection test
+GET https://brianna-cse341.onrender.com/contacts
+
+### Post request (Create a contact)
+POST https://brianna-cse341.onrender.com/contacts
+HTTP:1.1
+Content-Type: application/json
+
+{
+    "firstName":"Harley",
+    "lastName":"Marsh",
+    "email":"Harley@gmail.com",
+    "favoriteColor":"white",
+    "birthday":"4/10/2018"
+}
+
+### Put request (Update a contact)
+PUT https://brianna-cse341.onrender.com/contacts/632687203eae7112e89ef00c
+HTTP:1.1
+Content-Type: application/json
+
+{
+    "firstName":"Riley",
+    "lastName":"Slik",
+    "email":"rs@gmail.com",
+    "favoriteColor":"purple",
+    "birthday":"2/11/2000"
+}
+
+### Delete request (Delete a contact)
+DELETE https://brianna-cse341.onrender.com/contacts/632bc4dfb901b114894034a4
+
