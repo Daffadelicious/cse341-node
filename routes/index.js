@@ -5,5 +5,6 @@ const controller = require('../controllers')
 // Two routes, one default the other at /therestwo
 routes.get('/', controller.routeTest)
 routes.get('/therestwo', controller.anothaOne)
+routes.use('/contacts', require('./contactRoute'))
 
 module.exports = routes;

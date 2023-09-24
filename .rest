@@ -4,3 +4,9 @@ GET http://localhost:3000/therestwo HTTP/1.1
 
 ### Render Woo hooo it works!
 https://cse341-node-q4xx.onrender.com
+
+### 
+http://localhost:3000/contacts
+
+###
+https://cse341-node-q4xx.onrender.com/contacts/650fbe80df8b1c7efff7a947
