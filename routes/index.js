@@ -1,10 +1,10 @@
-const routes = require('express').Router();
+const router = require('express').Router();
 // Connect controller file
 const controller = require('../controllers')
 
 // Two routes, one default the other at /therestwo
-routes.get('/', controller.routeTest)
-routes.get('/therestwo', controller.anothaOne)
-routes.use('/contacts', require('./contactRoute'))
+router.get('/', controller.routeTest)
+router.get('/therestwo', controller.anothaOne)
+router.use('/contacts', require('./contactRoute'))
 
-module.exports = routes;
+module.exports = router;

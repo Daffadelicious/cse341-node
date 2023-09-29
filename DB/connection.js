@@ -10,19 +10,22 @@
 //     } finally {
 //         await client.close();
 //     }
-    
+
 // }
-
-
 
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-dotenv.config()
+dotenv.config();
 const URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.tz73yso.mongodb.net/?retryWrites=true&w=majority`;
+
 const connectDB = async()=>{
-    await mongoose.connect(URI, {useUnifiedTopology: true,useNewUrlParser:true});
-    console.log("Database has been connected.")
+    await mongoose.connect(URI, {useUnifiedTopology: true,useNewUrlParser:true})
+    .then(()=>{
+        console.log("Database has been connected.")
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 module.exports = connectDB;
-
