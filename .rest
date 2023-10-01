@@ -1,12 +1,42 @@
-GET http://localhost:3000 HTTP/1.1
+GET http://localhost:3000 
 ### Seperator
-GET http://localhost:3000/therestwo HTTP/1.1
+GET http://localhost:3000/therestwo 
 
 ### Render Woo hooo it works!
-https://cse341-node-q4xx.onrender.com
-
-### 
-http://localhost:3000/contacts
+GET https://cse341-node-q4xx.onrender.com 
 
 ###
-https://cse341-node-q4xx.onrender.com/contacts/650fbe80df8b1c7efff7a947
+GET https://cse341-node-q4xx.onrender.com/contacts/6517324f5e46bc83f8a3f77f
+
+### Show all contacts
+GET http://localhost:3000/contacts/
+
+### Show one contact
+GET http://localhost:3000/contacts/6518e059d11fdbf1a487f332
+
+### Create a contact
+POST http://localhost:3000/contacts 
+Content-Type: application/json
+
+{
+    "firstName": "Test", 
+    "lastName": "User", 
+    "email": "test@byui.edu", 
+    "favoriteColor": "orange", 
+    "birthday": "12/09/1999"
+}
+
+### Update a contact
+PUT http://localhost:3000/contacts/6518de45e6398cd9013cd953
+Content-Type: application/json
+
+{
+    "firstName": "BriAnna", 
+    "lastName": "Slik", 
+    "email": "mar18016@byui.edu", 
+    "favoriteColor": "red", 
+    "birthday": "12/09/1999"
+}
+
+### Delete a contact
+DELETE http://localhost:3000/contacts/6518e04861cdf4ee47d27a4c

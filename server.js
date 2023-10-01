@@ -4,9 +4,9 @@ const connectDB = require('./DB/connection');
 var app = express();
 connectDB()
 
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 // Use either render's port from env or locally 3000

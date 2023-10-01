@@ -1,37 +1,86 @@
-const mongoose = require('mongoose')
-const Contact = require("../modules/contact");
+const mongoose = require('mongoose');
+const Contact = require('../modules/contact');
 
-const createContact = async () => {
+const createContact = async (req, res) => {
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday,
+  };
+  console.log(contact)
   try {
-    await Contact.create({ 
-      firstName: "Tawnee", 
-      lastName: "Marsh", 
-      email: "tawneethedog@gmail.com", 
-      favoriteColor: "gray/periwinkle", 
-      birthday: "07/30/2011"})
-    console.log("Contact saved")
+    // const newContactData = await newContact.save()
+    const newContact = await Contact.create(contact);
+    res.status(201).json(newContact._id);
   } catch (e) {
-    console.log(e.message)
+    res.status(400).json({ message: e.message });
   }
-}
+};
 
-const updateContact = () => {
-
-}
-
-const listAllContacts = (req, res) => {
-  Contact.find({}).then(function(contactData) {
-    res.json(contactData);
-  }).catch(function(err) {
-    console.log(err);
-  });
+const listAllContacts = async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+    res.json(contacts);
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
 };
 
 const contactById = async (req, res) => {
-  const contactData = await Contact.findById(req.params.contactId)
-  if (contactData){
-    res.json(contactData);
+  res.send(res.contact);
+};
+
+const updateContact = async (req, res) => {
+  const contactId = res.contact._id;
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday,
+  };
+  console.log(contact)
+  try {
+    await Contact.updateOne({_id:contactId}, contact)
+    res.status(204).json({ message: contact });
+  } catch (e) {
+    res.status(400).json({ message: e.message });
   }
 };
 
-module.exports = { listAllContacts, contactById };
+const deleteContact = async (req, res) => {
+  const contactId = res.contact._id;
+  try {
+    await Contact.deleteOne({ _id: contactId });
+    res.status(200).json({ message: 'Contact has been removed' });
+  } catch (e) {
+    res.status(500).json({ message: e.message });
+  }
+};
+
+const getContact = async (req, res, next) => {
+  let contact;
+  try {
+    contact = await Contact.findById(req.params.contactId);
+    if (contact == null) {
+      return res
+        .status(404)
+        .json({ message: 'Cannot find contact with that id' });
+    }
+  } catch (e) {
+    return res.status(500).json({ message: e.message });
+  }
+  res.contact = contact;
+  next();
+};
+
+module.exports = {
+  listAllContacts,
+  getContact,
+  contactById,
+  createContact,
+  updateContact,
+  deleteContact,
+};
