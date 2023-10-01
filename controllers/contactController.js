@@ -41,7 +41,6 @@ const updateContact = async (req, res) => {
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday,
   };
-  console.log(contact)
   try {
     await Contact.updateOne({_id:contactId}, contact)
     res.status(204).json({ message: contact });

@@ -1,18 +1,12 @@
+### LOCAL
 GET http://localhost:3000 
-### Seperator
-GET http://localhost:3000/therestwo 
 
-### Render Woo hooo it works!
-GET https://cse341-node-q4xx.onrender.com 
-
-###
-GET https://cse341-node-q4xx.onrender.com/contacts/6517324f5e46bc83f8a3f77f
 
 ### Show all contacts
 GET http://localhost:3000/contacts/
 
 ### Show one contact
-GET http://localhost:3000/contacts/6518e059d11fdbf1a487f332
+GET http://localhost:3000/contacts/6519072cd86dfc9ebc8061ea
 
 ### Create a contact
 POST http://localhost:3000/contacts 
@@ -23,20 +17,59 @@ Content-Type: application/json
     "lastName": "User", 
     "email": "test@byui.edu", 
     "favoriteColor": "orange", 
-    "birthday": "12/09/1999"
+    "birthday": "9/30/2023"
 }
 
 ### Update a contact
+PUT http://localhost:3000/contacts/6519072cd86dfc9ebc8061ea
+Content-Type: application/json
+
+{
+    "firstName": "Twice Tested", 
+    "lastName": "User", 
+    "email": "twicetested@byui.edu", 
+    "favoriteColor": "orange", 
+    "birthday": "09/30/2023"
+}
+
+### Delete a contact
+DELETE http://localhost:3000/contacts/6519072cd86dfc9ebc8061ea
+
+
+
+### RENDER
+GET https://cse341-node-q4xx.onrender.com 
+
+
+### Render Show all contacts
+GET https://cse341-node-q4xx.onrender.com/contacts/
+
+### Render Show one contact
+GET https://cse341-node-q4xx.onrender.com/6518e059d11fdbf1a487f332
+
+### Render Create a contact
+POST https://cse341-node-q4xx.onrender.com/contacts 
+Content-Type: application/json
+
+{
+    "firstName": "Render", 
+    "lastName": "User", 
+    "email": "rendertest@byui.edu", 
+    "favoriteColor": "cyan", 
+    "birthday": "09/16/2023"
+}
+
+### Render Update a contact
 PUT http://localhost:3000/contacts/6518de45e6398cd9013cd953
 Content-Type: application/json
 
 {
-    "firstName": "BriAnna", 
-    "lastName": "Slik", 
-    "email": "mar18016@byui.edu", 
-    "favoriteColor": "red", 
-    "birthday": "12/09/1999"
+    "firstName": "Render", 
+    "lastName": "User", 
+    "email": "newemail@byui.edu", 
+    "favoriteColor": "turquoise", 
+    "birthday": "09/30/2023"
 }
 
-### Delete a contact
+### Render Delete a contact
 DELETE http://localhost:3000/contacts/6518e04861cdf4ee47d27a4c
